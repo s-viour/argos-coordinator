@@ -14,12 +14,23 @@ let port = process.env.PORT || 3000
 
 let elements = "vsa"
 let final = "sav"
+let side = "ARC"
 
 app.get("/elements", (req, res) => {
 	res.send({
 			"first": elements,
 			"second": final
 	})
+})
+
+app.get("/side", (req, res) => {
+	res.send({
+		"side": side
+	})
+})
+
+app.post("/proside", (req, res) => {
+	side = req.body.side
 })
 
 app.post("/process", (req, res) => {

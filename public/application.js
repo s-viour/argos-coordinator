@@ -15,6 +15,11 @@ function submit_queue() {
 	queue = ""
 }
 
+function send_side(side) {
+	let data = {"side": side}
+	$.post("/proside", data)
+}
+
 function draw(letter, id) {
 	let ctx = document.getElementById(id).getContext("2d")
 	if (letter == "v") {
@@ -32,7 +37,7 @@ function draw(letter, id) {
 	ctx.fillRect(75, 0, 150, 75)
 }
 
-function update_elements() {
+function update() {
 	$.get("/elements", (data) => {
 		let first = data.first
 		let second = data.second
@@ -51,6 +56,10 @@ function update_elements() {
 		draw(second2, "second2")
 		draw(second3, "second3")
 	})
+
+	$.get("/side", (data) => {
+		document.getElementById("side").innerText = data.side
+	})
 }
 
-setInterval(update_elements, 3000)
+setInterval(update, 500)
