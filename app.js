@@ -31,6 +31,9 @@ app.get("/side", (req, res) => {
 
 app.post("/proside", (req, res) => {
 	side = req.body.side
+	res.send({
+		"side": side
+	})
 })
 
 app.post("/process", (req, res) => {
