@@ -1,10 +1,15 @@
 var queue = ""
 
+let void_purple = "#a400eb"
+let solar_orange = "#f86000"
+let arc_blue = "#0b7dd3"
+
 function queue_element(element) {
+	queue += element
 	if (queue.length >= 3) {
+		submit_queue()
 		queue = ""
 	}
-	queue += element
 }
 
 function submit_queue() {
@@ -23,18 +28,27 @@ function send_side(side) {
 function draw(letter, id) {
 	let ctx = document.getElementById(id).getContext("2d")
 	if (letter == "v") {
-		ctx.fillStyle = "purple"
+		ctx.strokeStyle = void_purple
+		ctx.fillStyle = void_purple
 	}
 	else if (letter == "s") {
-		ctx.fillStyle = "orange"
+		ctx.strokeStyle = solar_orange
+		ctx.fillStyle = solar_orange
 	}
 	else if (letter == "a") {
-		ctx.fillStyle = "blue"
+		ctx.strokeStyle = arc_blue
+		ctx.fillStyle = arc_blue
 	}
 	else {
-		ctx.fillStyle = "black"
+		ctx.strokeStyle = "#000000"
+		ctx.fillStyle = "#000000"
 	}
-	ctx.fillRect(75, 0, 150, 75)
+	ctx.beginPath()
+	ctx.arc(150,75,50,0,2*Math.PI)
+	ctx.closePath()
+	ctx.fill()
+	ctx.stroke()
+	//ctx.fillRect(75, 0, 150, 75)
 }
 
 function update() {
