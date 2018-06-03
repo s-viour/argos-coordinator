@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+</html>
+<head>
+	<title>argos coordinator</title>
+
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div align="center">
+		<canvas class="elemental" id="first1"></canvas>
+		<canvas class="elemental" id="first2"></canvas>
+		<canvas class="elemental" id="first3"></canvas>
+	</div>
+	<div align="center">
+		<canvas class="elemental" id="second1"></canvas>
+		<canvas class="elemental" id="second2"></canvas>
+		<canvas class="elemental" id="second3"></canvas>
+	</div>
+
+	<div align="center">
+		<button onClick="queue_element('v')">void</button>
+		<button onClick="queue_element('s')">solar</button>
+		<button onClick="queue_element('a')">arc</button>
+		<button onClick="submit_queue()">submit</button>
+	</div>
+
+	<script
+  		src="https://code.jquery.com/jquery-3.3.1.min.js"
+  		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  		crossorigin="anonymous">
+  	</script>
+  	<script src="application.js"></script>
+</body>
+</html>
